@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lyfe</title>
+    <!--jQuery mobile style-->
+    <link rel="stylesheet" type="text/css" href="css/lib/jquery.mobile-1.4.5.css">
+    <!--my style-->
+    <link rel="stylesheet" type="text/css" href="css/Mystyle.css">
+    <!--jQuery-->
+    <script src="js/lib/jquery-2.1.4.js"></script>
+    <!--jQuery mobile-->
+    <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+    <!--jQuery validator-->
+    <script src="js/lib/jquery.validate.js"></script>
+    <!--Our Scripts-->
+    <script src="js/util.js"></script>
+    <script src="js/DAL.js"></script>
+    <script src="js/database.js"></script>
+    <script src="js/Facade.js"></script>
+
+    <script src="js/Global.js"></script>
+<body>
+
+
+<!--page 1-->
+<div id="HomePage" data-role="page">
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1>Lyfe</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#HomePage" data-icon="home" data-theme="a" class="ui-btn-active ui-state-persist"
+                       data-transition="" data-rel="">Home</a></li>
+                <li><a href="#PageAdd" data-icon="plus" data-theme="a" class="" data-transition="" data-rel="">Add
+                </a></li>
+                <li><a href="#PageSettings" data-icon="gear" data-theme="a" class="" data-transition="" data-rel="">About and Settings</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <h1>Lyfe</h1>
+        <p align="center">
+            <img src="images/icon.png" width="25%" height="" alt="Icon">
+        </p>
+            <ul id="lvAll" data-role="listview" class="ui-listview-inset">
+            </ul>
+    </section>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <h1>&copy;2016 Ziming Qi</h1>
+    </footer>
+</div>
+<!--page 2-->
+<div id="PageAdd" data-role="page">
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1>Lyfe</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#HomePage" data-icon="home" data-theme="a" class="" data-transition="" data-rel="">Home</a></li>
+                <li><a href="#PageAdd" data-icon="plus" data-theme="a" class="ui-btn-active ui-state-persist" data-transition="" data-rel="">Add
+                </a></li>
+                <li><a href="#PageSettings" data-icon="gear" data-theme="a" class="" data-transition="" data-rel="">About and Settings</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <h1>Add</h1>
+        <form id="frmAdd">
+        <label for="datToday">Date:</label>
+        <input type="date" id="datToday" name="datToday" data-theme="a">
+        <label for="selectFeel">You Feel:</label>
+        <select id="selectFeel">
+
+        </select>
+        <label for="txtQ1">Today i ate ___</label>
+        <textarea type="txtQ1" id="txtQ1" name="txtQ1" data-theme="a"></textarea>
+        <label for="txtQ2">Today i played this game called ___</label>
+        <textarea type="txtQ2" id="txtQ2" name="txtQ2" data-theme="a"></textarea>
+        <label for="txtQ3">Today i went to ___</label>
+        <textarea type="txtQ3" id="txtQ3" name="txtQ3" data-theme="a"></textarea>
+            <input type="checkbox" id="cbAddPic" name="cbAddPic" onclick="showPic('pic')">
+            <label for="cbAddPic">Do you want to add a picture?</label>
+            <div id="pic" style="display:none">
+                <p>PIC!</p>
+            </div>
+        <button type="button" id="btnSave" name="btnSave" data-inline="true" class="ui-btn-active">
+            Save
+        </button>
+    </form>
+    </section>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <h1>&copy;2016 Ziming Qi</h1>
+    </footer>
+</div>
+    <!--page 3-->
+    <div id="PageDetails" data-role="page">
+        <header data-role="header" data-theme="b" data-position="fixed">
+            <h1>Lyfe</h1>
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#HomePage" data-icon="home" data-theme="a" class="" data-transition="" data-rel="">Home</a></li>
+                    <li><a href="#PageAdd" data-icon="plus" data-theme="a" class="" data-transition="" data-rel="">Add
+                    </a></li>
+                    <li><a href="#PageSettings" data-icon="gear" data-theme="a" class="" data-transition="" data-rel="">About and Settings</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+
+            <p id="journal" align="center">
+            </p>
+            <a href="#PageEdit" data-role="button"  id="btnEditCurrentJournal">Edit This Journal</a>
+
+        </section>
+        <footer data-role="footer" data-theme="b" data-position="fixed">
+            <h1>&copy;2016 Ziming Qi</h1>
+        </footer>
+    </div>
+
+<!--page 4-->
+<div id="PageSettings" data-role="page">
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1>Lyfe</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#HomePage" data-icon="home" data-theme="a" class="" data-transition="" data-rel="">Home</a></li>
+                <li><a href="#PageAdd" data-icon="plus" data-theme="a" class="" data-transition="" data-rel="">Add
+                </a></li>
+                <li><a href="#PageSettings" data-icon="gear" data-theme="a" class="ui-btn-active ui-state-persist" data-transition="" data-rel="">About and Settings</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+
+        <p align="center">
+            This app is developed by Ziming Qi.
+        </p>
+        <a href="#" data-role="button" data-theme="b" id="btnClearDatabase">Clear Database</a>
+        <form id="frmFeeling">
+        <label for="txtAddFeeling">Add a new feeling here!</label>
+        <input type="text" id="txtAddFeeling" name="txtAddFeeling" data-theme="a" data-clear-btn="true">
+            <button type="button" id="btnAddFeeling" name="btnAddFeeling" data-iconpos="left" data-theme="a"
+                    data-inline="true" class="ui-btn-active">Add
+            </button>
+
+        </form>
+
+    </section>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <h1>&copy;2016 Ziming Qi</h1>
+    </footer>
+</div>
+    <!--Page 5-->
+<div id="PageEdit" data-role="page">
+    <header data-role="header" data-theme="b" data-position="fixed">
+        <h1>Lyfe</h1>
+        <div data-role="navbar" data-iconpos="top">
+            <ul>
+                <li><a href="#HomePage" data-icon="home" data-theme="a" class="" data-transition="" data-rel="">Home</a></li>
+                <li><a href="#PageAdd" data-icon="plus" data-theme="a" class="" data-transition="" data-rel="">Add
+                </a></li>
+                <li><a href="#PageSettings" data-icon="gear" data-theme="a" class="" data-transition="" data-rel="">About and Settings</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section data-role="content">
+        <h1>Edit</h1>
+        <form id="frmEdit">
+            <label for="datEditToday">Date:</label>
+            <input type="date" id="datEditToday" name="datEditToday" data-theme="a">
+            <label for="selectEditFeel">You Feel:</label>
+            <select id="selectEditFeel">
+            </select>
+            <label for="txtEditQ1">Today i ate ___</label>
+            <textarea type="txtEditQ1" id="txtEditQ1" name="txtQ1" data-theme="a"></textarea>
+            <label for="txtEditQ2">Today i played this game called ___</label>
+            <textarea type="txtEditQ2" id="txtEditQ2" name="txtQ2" data-theme="a"></textarea>
+            <label for="txtEditQ3">Today i went to ___</label>
+            <textarea type="txtEditQ3" id="txtEditQ3" name="txtQ3" data-theme="a"></textarea>
+            <input type="checkbox" id="cbEditPic" name="cbEditPic" onclick="showPic('pic')">
+            <label for="cbEditPic">Do you want to add a picture?</label>
+            <div id="picEdit" style="display:none">
+                <p>PIC!</p>
+            </div>
+            <div data-role="controlgroup" data-type="horizontal">
+                <a href="#PageDetails" data-role="button" style="background-color:yellow" id="btnEditCancel">Cancel</a>
+                <a href="#" data-role="button" data-theme="b" id="btnEditDelete">Delete</a>
+                <a href="#" data-role="button" class="ui-btn-active" id="btnEditUpdate">Update</a>
+            </div>
+        </form>
+    </section>
+    <footer data-role="footer" data-theme="b" data-position="fixed">
+        <h1>&copy;2016 Ziming Qi</h1>
+    </footer>
+</div>
+</body>
+</html>
